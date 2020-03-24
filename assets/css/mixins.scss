@@ -1,0 +1,74 @@
+$primary-color: #171717;
+$seconary-color: #FF4757;
+
+
+
+$screen-mobile: 767px;
+$screen-tablet-portrait: 768px;
+$screen-tablet-landscape: 1024px;
+$header-height: 60;
+
+@mixin mobile_devices {
+    @media (max-width: #{$screen-mobile}) {
+        @content;
+    }
+}
+
+
+@mixin tablet_devices {
+    @media (min-width: #{$screen-tablet-portrait}) and (max-width: #{$screen-tablet-landscape}) {
+        @content;
+    }
+}
+@mixin desktop_devices {
+    @media (min-width: #{$screen-tablet-landscape}) {
+        @content;
+    }
+}
+@mixin upto_tablet_devices_portrait {
+    @media (max-width: #{$screen-tablet-portrait}) {
+        @content;
+    }
+}
+@mixin upto_tablet_devices_landscape {
+    @media (max-width: #{$screen-tablet-landscape}) {
+        @content;
+    }
+}
+@mixin small_devices {
+    @media (min-width: 768px) {
+        @content;
+    }
+ }
+ 
+ @mixin text_ellipsis {
+    white-space: nowrap;  text-overflow: ellipsis; overflow: hidden;
+ }
+ @mixin transition-ease-in {
+  transition: all ease-in 0.2s;
+}
+
+/*Font Size*/
+ @function strip-unit($value) {
+   @return $value / ($value * 0 + 1);
+ }
+ 
+ @mixin fluid-type($properties, $min-vw, $max-vw, $min-value, $max-value) {
+   @each $property in $properties {
+     #{$property}: $min-value;
+   }
+ 
+   @media screen and (min-width: $min-vw) {
+     @each $property in $properties {
+       #{$property}: calc(#{$min-value} + #{strip-unit($max-value - $min-value)} * (100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)});
+     }
+   }
+ 
+   @media screen and (min-width: $max-vw) {
+     @each $property in $properties {
+       #{$property}: $max-value;
+     }
+   }
+ }
+
+ 

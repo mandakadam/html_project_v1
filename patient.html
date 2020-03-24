@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!--  CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/aos.css" />
+
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <title>Toothsi</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-light bg-white">
+        <div class="container">
+            <div class="row">
+                    <a class="navbar-brand" href="index.html"><img src="assets/img/logo.png" alt="Toothsi" height="46" /></a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container" data-aos="zoom-in">
+        <div class="row">
+            <div class="col-md-6 col-lg-4 mx-auto">
+                <h2 class="main_hd">
+                    <span>Book a free smile </span>  
+                    check for patient
+                </h2>
+
+                <form id="patient-register"  class="custom_form" autocomplete="off">
+                    
+                        <div class="input-group">
+                            <input type="text" autofocus oninput="this.value=this.value.replace(/[^a-zA-Z]/g,'')" name="name" id="name" class="form-control" required>
+                            <label class="form-label" for="name">Patient Name</label>
+                        </div>
+                        <div class="input-group">
+                            <input type="text" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength); this.value=this.value.replace(/[^0-9]/g,'')" maxlength="10" name="mobile" id="mobile" class="form-control" required>
+                            <label class="form-label" for="mobile">Mobile No.</label>
+                       </div>
+                        <div class="d-flex justify-content-between align-items-center">
+
+                            <div class="form-group form-check mb-0">
+                                <input type="checkbox" class="form-check-input" id="accept_terms" checked/>
+                                <label class="form-check-label" for="accept_terms">Allow notification<br />via Whatsapp</label>
+                              </div>
+                            <div class="input-group-append ml-3">
+                                <button class="btn btn_primary py-2 px-4" type="submit" >Next</button>
+                            </div>
+                       </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="assets/js/aos.js"></script>
+  
+    <script>
+         AOS.init();
+
+         document.getElementById('patient-register').addEventListener('submit', function(e){
+            e.preventDefault();
+            window.location.href = "patient_more_info.html"
+        });
+
+    </script>
+  </body>
+</html>

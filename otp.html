@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!--  CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/aos.css" />
+
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <title>Toothsi</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-light bg-white">
+        <div class="container">
+            <div class="row">
+                    <a class="navbar-brand" href="index.html"><img src="assets/img/logo.png" alt="Toothsi" height="46" /></a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container" data-aos="zoom-in">
+        <div class="row">
+            <div class="col-md-6 col-lg-4 mx-auto">
+                <div class="info_graphic">
+                    <img src="assets/img/doc-assets.svg" alt="" height="194" />
+                </div>
+
+                <h2 class="main_hd">
+                    <span>Please verify OTP</span>  
+                    send to 89876543210
+                </h2>
+
+                <form id="otp-form" class="custom_form" autocomplete="off">
+                    <div class="input-group flex-nowrap mb-4">
+                        <div class="digit-group six_digits_otp">
+                            <input class="form-control" type="text" placeholder="&#8226;" id="digit-1" name="digit-1"  maxlength="1" data-next="digit-2" autofocus required/>
+                            <input class="form-control" type="text" placeholder="&#8226;" id="digit-2" name="digit-2"  maxlength="1" data-next="digit-3" data-previous="digit-1" required/>
+                            <input class="form-control" type="text" placeholder="&#8226;" id="digit-3" name="digit-3"  maxlength="1" data-next="digit-4" data-previous="digit-2" required />
+                            <input class="form-control" type="text" placeholder="&#8226;" id="digit-4" name="digit-4"  maxlength="1" data-next="digit-5" data-previous="digit-3" required />
+                            <input class="form-control" type="text" placeholder="&#8226;" id="digit-5" name="digit-5"  maxlength="1" data-next="digit-6" data-previous="digit-4" required />
+                            <input class="form-control" type="text" placeholder="&#8226;" id="digit-6" name="digit-6"  maxlength="1" data-previous="digit-5" required />
+                            <label class="form-label active" for="mobile">6 Digit OTP</label>
+                      </div>
+
+                      <div class="input-group-append ml-3">
+                        <button class="btn btn_primary nowrap" type="submit" id="submit_otp">Send OTP</button>
+                        </div>
+                  </div>
+
+                  <a href="#" class="arrow_link">Request a new OTP </a>
+
+                   
+            </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="assets/js/aos.js"></script>
+  
+   <script>
+        AOS.init();
+
+
+        document.getElementById('otp-form').addEventListener('submit', function(e){
+            e.preventDefault();
+            window.location.href = "welcome.html"
+        });
+
+
+        var parentEl = document.querySelector('.digit-group')
+        var childEl  = parentEl.querySelectorAll(".form-control");
+        var submit_btn  = document.getElementById("submit_otp");
+
+        childEl.forEach(el => {
+            el.addEventListener("keyup", function(e){
+                var next = parentEl.querySelector('input#' + el.getAttribute('data-next'));
+                var prev = parentEl.querySelector('input#' + el.getAttribute('data-previous'));
+
+                if(e.keyCode === 8 || e.keyCode === 37) {
+                    if(prev) {
+                        prev.focus();
+                    }
+                }
+                else if((e.keyCode >= 48 && e.keyCode <= 57) || (e.keyCode >= 65 && e.keyCode <= 90) || (e.keyCode >= 96 && e.keyCode <= 105) || e.keyCode === 39) {
+                
+                if(next) {
+                    next.select();
+                } else {
+                    submit_btn.focus()
+                }
+            } 
+            })
+        })
+
+    </script>
+  </body>
+</html>
