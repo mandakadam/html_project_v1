@@ -1,7 +1,15 @@
 @import 'mixins';
 
 body{ color: $primary-color; font-size: 15px;}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+     -webkit-appearance: none;
+     margin: 0;
+}
 
+input[type=number] {
+     -moz-appearance:textfield;
+}
 /* Links */
 a:hover{color: $primary-color;}
 .arrow_link{text-transform: uppercase; font-weight: bold; font-size: 13px; color: initial;}
