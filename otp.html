@@ -77,7 +77,7 @@
         var submit_btn  = document.getElementById("submit_otp");
 
         childEl.forEach(el => {
-            el.addEventListener("touchstart", function(e){
+            el.addEventListener("input", function(e){
                 var next = parentEl.querySelector('input#' + el.getAttribute('data-next'));
                 var prev = parentEl.querySelector('input#' + el.getAttribute('data-previous'));
 
