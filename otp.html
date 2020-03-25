@@ -81,6 +81,7 @@
             var eventList = ["input", "keyup", "touchend"];
             for(event of eventList) {
                     el.addEventListener(event, function(e) {
+                      console.log(event)
                         var next = parentEl.querySelector('input#' + el.getAttribute('data-next'));
                         var prev = parentEl.querySelector('input#' + el.getAttribute('data-previous'));
 
