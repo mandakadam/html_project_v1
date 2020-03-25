@@ -76,34 +76,25 @@
         var childEl  = parentEl.querySelectorAll(".form-control");
         var submit_btn  = document.getElementById("submit_otp");
 
+        childEl.forEach(el => {
+            el.addEventListener("touchstart", function(e){
+                var next = parentEl.querySelector('input#' + el.getAttribute('data-next'));
+                var prev = parentEl.querySelector('input#' + el.getAttribute('data-previous'));
 
-         childEl.forEach(el => { 
-            var eventList = ["input", "keyup", "touchend"];
-            for(event of eventList) {
-                    el.addEventListener(event, function(e) {
-                        var next = parentEl.querySelector('input#' + el.getAttribute('data-next'));
-                        var prev = parentEl.querySelector('input#' + el.getAttribute('data-previous'));
-
-                        if(e.keyCode === 8 || e.keyCode === 37) {
-                            if(prev) {
-                                prev.focus();
-                            }
-                        }
-                        else if((e.keyCode >= 48 && e.keyCode <= 57) || (e.keyCode >= 65 && e.keyCode <= 90) || (e.keyCode >= 96 && e.keyCode <= 105) || e.keyCode === 39) {
-                        
-                        if(next) {
-                            next.select();
-                        } else {
-                            submit_btn.focus()
-                        }
-                    } 
-                });
-            }
-
-
-            // el.addEventListener("keyup","keypress", function(e){
-         
-            // })
+                if(e.keyCode === 8 || e.keyCode === 37) {
+                    if(prev) {
+                        prev.focus();
+                    }
+                }
+                else if((e.keyCode >= 48 && e.keyCode <= 57) || (e.keyCode >= 65 && e.keyCode <= 90) || (e.keyCode >= 96 && e.keyCode <= 105) || e.keyCode === 39) {
+                
+                if(next) {
+                    next.select();
+                } else {
+                    submit_btn.focus()
+                }
+            } 
+            })
         })
 
     </script>
