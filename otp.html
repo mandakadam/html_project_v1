@@ -80,7 +80,7 @@
             el.addEventListener("keyup", function(e){
                 var next = parentEl.querySelector('input#' + el.getAttribute('data-next'));
                 var prev = parentEl.querySelector('input#' + el.getAttribute('data-previous'));
-                next.select();
+                next.select(); 
                 if(e.keyCode === 8 || e.keyCode === 37) {
                     if(prev) {
                         prev.focus();
