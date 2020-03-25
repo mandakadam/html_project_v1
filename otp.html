@@ -87,7 +87,7 @@
 
                         if(e.keyCode === 8 || e.keyCode === 37) {
                             if(prev) {
-                                prev.focus();
+                                prev.focus().select();
                             }
                         }
                         else if((e.keyCode >= 48 && e.keyCode <= 57) || (e.keyCode >= 65 && e.keyCode <= 90) || (e.keyCode >= 96 && e.keyCode <= 105) || e.keyCode === 39) {
@@ -95,7 +95,7 @@
                         if(next) {
                             next.select();
                         } else {
-                            submit_btn.focus()
+                            submit_btn.focus().select()
                         }
                     } 
                 });
