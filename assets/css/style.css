@@ -17,13 +17,22 @@ input[type=number] {
 /* Links */
 a:hover {
   color: #171717;
+  text-decoration: none;
 }
 
 .arrow_link {
+  -webkit-transition: all ease-in 0.2s;
+  transition: all ease-in 0.2s;
   text-transform: uppercase;
   font-weight: bold;
   font-size: 13px;
   color: initial;
+  background: url("../img/arrow_left.jpg") 98% 50% no-repeat;
+  padding-right: 20px;
+}
+
+.arrow_link:hover {
+  background-position: 100% 50%;
 }
 
 /* Helpers */

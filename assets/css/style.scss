@@ -11,9 +11,9 @@ input[type=number] {
      -moz-appearance:textfield;
 }
 /* Links */
-a:hover{color: $primary-color;}
-.arrow_link{text-transform: uppercase; font-weight: bold; font-size: 13px; color: initial;}
-
+a:hover{color: $primary-color; text-decoration: none;}
+.arrow_link{@include transition-ease-in(); text-transform: uppercase; font-weight: bold; font-size: 13px; color: initial; background: url('../img/arrow_left.jpg') 98% 50% no-repeat; padding-right: 20px;}
+.arrow_link:hover{background-position:  100% 50%;}
 
 /* Helpers */
 .nowrap{white-space:nowrap}
