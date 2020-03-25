@@ -78,7 +78,7 @@
 
 
          childEl.forEach(el => { 
-            var eventList = ["keypress", "keyup"];
+            var eventList = ["input", "keyup"];
             for(event of eventList) {
                     el.addEventListener(event, function(e) {
                         var next = parentEl.querySelector('input#' + el.getAttribute('data-next'));
