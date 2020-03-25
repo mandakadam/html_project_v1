@@ -37,11 +37,11 @@
                 <form id="otp-form" class="custom_form" autocomplete="off">
                     <div class="input-group flex-nowrap mb-4">
                         <div class="digit-group six_digits_otp">
-                            <input class="form-control" type="text" placeholder="&#8226;" id="digit-1" name="digit-1"  maxlength="1" data-next="digit-2" autofocus required/>
-                            <input class="form-control" type="text" placeholder="&#8226;" id="digit-2" name="digit-2"  maxlength="1" data-next="digit-3" data-previous="digit-1" required/>
-                            <input class="form-control" type="text" placeholder="&#8226;" id="digit-3" name="digit-3"  maxlength="1" data-next="digit-4" data-previous="digit-2" required />
-                            <input class="form-control" type="text" placeholder="&#8226;" id="digit-4" name="digit-4"  maxlength="1" data-next="digit-5" data-previous="digit-3" required />
-                            <input class="form-control" type="text" placeholder="&#8226;" id="digit-5" name="digit-5"  maxlength="1" data-next="digit-6" data-previous="digit-4" required />
+                            <input class="form-control" type="text" placeholder="&#8226;" id="digit-1" name="digit-1"  maxlength="1" data-next="digit-2" autofocus required oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength); this.value=this.value.replace(/[^0-9]/g,'')" />
+                            <input class="form-control" type="text" placeholder="&#8226;" id="digit-2" name="digit-2"  maxlength="1" data-next="digit-3" data-previous="digit-1" required oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength); this.value=this.value.replace(/[^0-9]/g,'')" />
+                            <input class="form-control" type="text" placeholder="&#8226;" id="digit-3" name="digit-3"  maxlength="1" data-next="digit-4" data-previous="digit-2" required oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength); this.value=this.value.replace(/[^0-9]/g,'')" />
+                            <input class="form-control" type="text" placeholder="&#8226;" id="digit-4" name="digit-4"  maxlength="1" data-next="digit-5" data-previous="digit-3" required oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength); this.value=this.value.replace(/[^0-9]/g,'')" />
+                            <input class="form-control" type="text" placeholder="&#8226;" id="digit-5" name="digit-5"  maxlength="1" data-next="digit-6" data-previous="digit-4" required oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength); this.value=this.value.replace(/[^0-9]/g,'')" />
                             <input class="form-control" type="text" placeholder="&#8226;" id="digit-6" name="digit-6"  maxlength="1" data-previous="digit-5" required />
                             <label class="form-label active" for="mobile">6 Digit OTP</label>
                       </div>
@@ -77,10 +77,10 @@
         var submit_btn  = document.getElementById("submit_otp");
 
         childEl.forEach(el => {
-            el.addEventListener("keydown", function(e){
+            el.addEventListener("keyup", function(e){
                 var next = parentEl.querySelector('input#' + el.getAttribute('data-next'));
                 var prev = parentEl.querySelector('input#' + el.getAttribute('data-previous'));
-
+                next.select();
                 if(e.keyCode === 8 || e.keyCode === 37) {
                     if(prev) {
                         prev.focus();
